@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tafurnell/docker-react-demo -f Dockerfile.dev .
+
+script:
+  - docker run CI=true tafurnell/docker-react-demo npm run test -- --coverage

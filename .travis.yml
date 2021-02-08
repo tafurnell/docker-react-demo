@@ -5,7 +5,7 @@ services:
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t tafurnell/docker-react-demo -f Dockerfile .
+  - docker build -t tafurnell/docker-react-demo -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true tafurnell/docker-react-demo npm run test -- --coverage
